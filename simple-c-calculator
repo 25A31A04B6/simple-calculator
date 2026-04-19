@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+int main() {
+double num1, num2, result;
+char operator;
+char choice;
+
+printf("=== Simple Calculator in C ===\n");  
+
+do {  
+    // Get first number  
+    printf("\nEnter first number: ");  
+    scanf("%lf", &num1);  
+
+    // Get operator  
+    printf("Enter operator (+, -, *, /): ");  
+    scanf(" %c", &operator);  // space before %c to handle newline  
+
+    // Get second number  
+    printf("Enter second number: ");  
+    scanf("%lf", &num2);  
+
+    // Perform calculation using switch  
+    switch (operator) {  
+        case '+':  
+            result = num1 + num2;  
+            printf("%.2lf + %.2lf = %.2lf\n", num1, num2, result);  
+            break;  
+        case '-':  
+            result = num1 - num2;  
+            printf("%.2lf - %.2lf = %.2lf\n", num1, num2, result);  
+            break;  
+        case '*':  
+            result = num1 * num2;  
+            printf("%.2lf * %.2lf = %.2lf\n", num1, num2, result);  
+            break;  
+        case '/':  
+            if (num2 != 0) {  
+                result = num1 / num2;  
+                printf("%.2lf / %.2lf = %.2lf\n", num1, num2, result);  
+            } else {  
+                printf("Error! Division by zero is not allowed.\n");  
+            }  
+            break;  
+        default:  
+            printf("Error! Invalid operator. Please use +, -, *, or /\n");  
+    }  
+
+    // Ask if user wants to continue  
+    printf("\nDo you want to perform another calculation? (y/n): ");  
+    scanf(" %c", &choice);  
+
+} while (choice == 'y' || choice == 'Y');  
+
+printf("\nThank you for using the Calculator! Goodbye.\n");  
+return 0;
+
+}
